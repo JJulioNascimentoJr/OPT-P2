@@ -8,6 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="tb_Emprestimo")
@@ -20,14 +24,25 @@ public class Emprestimo  implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@NotEmpty(message="Campo Data de Empréstimo não pode estar vazio..")
+	@Pattern(regexp ="[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$",message="Informe a Data com os Digitos válidos Ex:dia/mes/ano")
 	private String dtempres;
+	
+	@NotEmpty(message="Campo da Data de Devolução não pode estar vazio..")
+	@Pattern(regexp ="[0-9]{2}\\/[0-9]{2}\\/[0-9]{4}$",message="Informe a Data com os Digitos válidos Ex:dia/mes/ano")
 	private String dtdev;
 	
+	@NotNull(message="Campo Livro não pode estar vazio..")
 	@ManyToOne
 	private Livro livro;
+	
+	@NotNull(message="Campo Pessoa não pode estar vazio..")
 	@ManyToOne
 	private Pessoa pessoa;
-	public int getId() {
+	
+	
+    public int getId() {
 		return id;
 	}
 	public void setId(int id) {

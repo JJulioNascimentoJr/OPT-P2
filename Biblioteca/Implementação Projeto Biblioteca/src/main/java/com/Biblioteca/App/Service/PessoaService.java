@@ -18,15 +18,15 @@ public class PessoaService {
 		return repository.findAll();
 	}
 
-	public Pessoa findOne(int rg) {
-		return repository.findOne(rg);
+	public Pessoa findOne(int id) {
+		return repository.findOne(id);
 	}
 
 	public Pessoa save(Pessoa post) {
 		return repository.saveAndFlush(post);
 	}
 
-	public void delete(int rg) {
-		repository.delete(rg);
+	public void delete(int id) {
+		repository.delete(id);
 	}
 }

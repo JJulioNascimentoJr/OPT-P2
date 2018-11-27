@@ -37,19 +37,21 @@ public class PessoaController {
 		return mv;
 	}
 	
-	@GetMapping("/pessoa/edit/{rg}")
-	public ModelAndView edit(@PathVariable("rg") int rg) {
+	@GetMapping("/pessoa/edit/{id}")
+	public ModelAndView edit(@PathVariable("id") int id) {
 
-		return add(service.findOne(rg));
+		return add(service.findOne(id));
 	}
 	
-	@GetMapping("/pessoa/delete/{rg}")
-	public ModelAndView delete(@PathVariable("rg") int rg) {
+	@GetMapping("/pessoa/delete/{id}")
+	public ModelAndView delete(@PathVariable("id") int id) {
 
-		service.delete(rg);
+		service.delete(id);
 
 		return findAll();
 	}
+	
+
 	
 	@PostMapping("/pessoa/save")
 	public ModelAndView save(@Valid Pessoa pessoa, BindingResult result) {

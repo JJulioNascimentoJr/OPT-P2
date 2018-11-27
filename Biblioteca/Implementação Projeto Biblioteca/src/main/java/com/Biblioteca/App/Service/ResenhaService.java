@@ -23,10 +23,14 @@ public class ResenhaService {
 	}
 
 	public Resenha save(Resenha post) {
-		return repository.saveAndFlush(post);
+		
+		  return repository.saveAndFlush(post);
+	
 	}
 
 	public void delete(int id) {
 		repository.delete(id);
 	}
+	
+	
 }

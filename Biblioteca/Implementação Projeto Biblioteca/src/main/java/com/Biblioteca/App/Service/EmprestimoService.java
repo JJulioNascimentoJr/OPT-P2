@@ -23,7 +23,9 @@ public class EmprestimoService {
 	}
 
 	public Emprestimo save(Emprestimo post) {
-		return repository.saveAndFlush(post);
+		
+		   return repository.saveAndFlush(post);
+		
 	}
 
 	public void delete(int id) {

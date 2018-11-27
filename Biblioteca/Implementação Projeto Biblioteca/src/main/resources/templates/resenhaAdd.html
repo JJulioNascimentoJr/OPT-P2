@@ -7,14 +7,31 @@
 	<title>Cadastro de Resenha</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="estilo.css"/>
+    
+    <style>
+      #Imagem{ 
+    
+    	 background: url('https://images8.alphacoders.com/379/379448.jpg') no-repeat; 
+    	right:1000px;
+    	left:1000px;
+    	heigth:1000px;
+    	width:1000px;
+    	background-size: 999px;
+      }
+    </style>
+ 
+  
 </head>
-<body bgcolor="lightgray">
-	<div class="panel panel-default">
-		<div class="panel-heading">
+<body >
+	    
+	   
+		<div class="panel-heading" >
 			<strong>Cadastro de Resenha</strong>
 		</div>
-		<div class="panel-body">
-			<form class="form-horizontal" th:object="${resenha}" th:action="@{/resenha/save}" method="POST" style="margin: 10px">
+		<div class="panel-body" id="Imagem">
+		  <form class="form-horizontal" th:object="${resenha}" th:action="@{/resenha/save}" method="POST" style="margin: 10px">
+			
 				<div class="form-group">
  					<fieldset>
 						<div class="form-group row">
@@ -27,6 +44,7 @@
 						
 						<div class="form-group row">
 						    <div class="col-md-1">
+						        <label>Registro Resenhas</label>
 						        <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
 						    </div>
 						 </div>				
@@ -47,14 +65,17 @@
 							    </select>
 						    </div>
 						</div>		
+				
 				  </fieldset>
 				</div>
 				<div class="form-group row">
-					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-					<a th:href="@{/resenha/}" class="btn btn-sm btn-default">Cancelar</a>
+					<button type="submit" class="btn btn-sm btn-primary"><b>Salvar</b></button>
+					<a th:href="@{/resenha/}" class="btn btn-sm btn-default"><b>Cancelar</b></a>
 				</div>
-			</form>
-		</div>
-	</div>
+			 
+			 </form>
+		 </div>
+	
+	
 </body>
 </html>

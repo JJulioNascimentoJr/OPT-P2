@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.Biblioteca.App.Model.Autor;
 import com.Biblioteca.App.Service.AutorService;
 
+
+
 @Controller
 public class AutorController {
 	
@@ -27,6 +29,7 @@ public class AutorController {
 		return mv;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@GetMapping("/autor/add")
 	public ModelAndView add(Autor autor) {
 
@@ -51,7 +54,7 @@ public class AutorController {
 	}
 	
 	@PostMapping("/autor/save")
-	public ModelAndView save(@Valid Autor autor, BindingResult result) {
+	public ModelAndView save(@SuppressWarnings("rawtypes") @Valid Autor autor, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return add(autor);

@@ -8,7 +8,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body bgcolor="lightgray">
+<body >
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<strong>Empréstimo</strong>
@@ -21,7 +21,7 @@
 						    <th>Código do Empréstimo</th>
 							<th>Data de Empréstimo</th>
 							<th>Data de Devolução</th>
-							<th>Livro Emprestado</th>
+						    <th>Livro Emprestado</th>
 							<th>Pessoa Responsável</th>
 							
 						</tr>
@@ -32,12 +32,12 @@
 							<td th:text="${emprestimo.dtempres}"></td>
 							<td th:text="${emprestimo.dtdev}"></td>
 							<td th:text="${emprestimo.livro}"></td>
-							<td th:text="${emprestimo.pessoa}"></td>
+						    <td th:text="${emprestimo.pessoa}"></td>
 							
 							<td>
 								<div class="btn-group pull-right">
-							   		<a class="btn btn-sm btn-primary" th:href="@{/emprestimo/edit/{id}(id=${emprestimo.id})}" >Editar</a>
-							   		<a class="delete btn btn-sm btn-danger" th:href="@{/emprestimo/delete/{id}(id=${emprestimo.id})}">Excluir</a>
+							   		<a class="btn btn-sm btn-warning" th:href="@{/emprestimo/edit/{id}(id=${emprestimo.id})}" ><b>Editar</b></a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/emprestimo/delete/{id}(id=${emprestimo.id})}"><b>Excluir</b></a>
 							   </div>
 							</td>
 						</tr>
@@ -46,7 +46,8 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/emprestimo/add/}" >Adicionar</a>
+			<a class="btn btn-sm btn-info" th:href="@{/emprestimo/add/}" ><b>Adicionar</b></a>
+		    <a class="btn btn-sm btn-default" th:href="@{/menu/}" ><b>Menu Principal</b></a>
 		</div>
 	</div>
 </body>

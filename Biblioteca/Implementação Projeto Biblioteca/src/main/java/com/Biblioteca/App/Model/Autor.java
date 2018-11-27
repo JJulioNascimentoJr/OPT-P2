@@ -7,21 +7,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="tb_Autor")
-public class Autor implements Serializable{
+public class Autor<e> implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7065890685400743901L;
+
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String nome;
-	private String dtnasc;
 	
+	@NotEmpty(message="Campo do Nome não pode estar vazio..")
+    @Pattern(regexp ="((\\b[A-zÀ-ú']{2,40}\\b)\\s*){2,}$" ,message=" Este Nome Informado é Invalido... Ex:Nome Sobrenome")
+	private String nome;
+	
+	@NotEmpty(message="Campo do Data não pode estar vazio..")
+	@DateTimeFormat(pattern = "dd/MM/yyyy ")
+	private String dtnasc;
+    
 	public int getId() {
 		return id;
 	}
@@ -40,5 +53,6 @@ public class Autor implements Serializable{
 	public void setDtnasc(String dtnasc) {
 		this.dtnasc = dtnasc;
 	}
+	
 	
 }

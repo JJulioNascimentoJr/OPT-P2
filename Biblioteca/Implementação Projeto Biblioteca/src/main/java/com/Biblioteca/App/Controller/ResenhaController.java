@@ -58,13 +58,14 @@ public class ResenhaController {
 	
 	@PostMapping("/resenha/save")
 	public ModelAndView save(@Valid Resenha resenha, BindingResult result) {
-
-		if (result.hasErrors()) {
-			return add(resenha);
+       
+	  
+       if (result.hasErrors()) {
+			 return add(resenha);
 		}
-
-		service.save(resenha);
-
-		return findAll();
-	}
+	    
+        service.save(resenha);
+			return  findAll();
+	
+       }
 }

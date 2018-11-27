@@ -7,6 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="tb_Editora")
@@ -19,8 +24,15 @@ public class Editora implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@NotEmpty(message="Campo do Nome não pode estar vazio..")
+    @Pattern(regexp ="(\\b[A-zÀ-ú'\\s]{2,40})+$" ,message=" Este Nome Informado é Invalido... Ex:Nome ou Nome Fantasia")
 	private String nome;
-	private int anofund;
+	
+	@NotEmpty(message="Campo Ano de Fundação não pode estar vazio Ex:2000")
+	@Min(value=1950,message="Ano Minimo permitido 1950...Ano Inválido...")
+	@Max(value=2018,message="Ano Máximo permitido 2018...Ano Inválido...")
+	private String anofund;
 	
 	public int getId() {
 		return id;
@@ -34,10 +46,10 @@ public class Editora implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getAnofund() {
+	public String getAnofund() {
 		return anofund;
 	}
-	public void setAnofund(int anofund) {
+	public void setAnofund(String anofund) {
 		this.anofund = anofund;
 	}
 	

@@ -1,4 +1,4 @@
-package com.Biblioteca.App.Model;
+﻿package com.Biblioteca.App.Model;
 
 import java.io.Serializable;
 
@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="tb_Resenha")
@@ -21,11 +24,18 @@ public class Resenha implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String descricao;
 	
+	
+	@NotEmpty(message="Campo Descrição de Fundação não pode estar vazio...")
+    private String descricao;
+	
+	@NotNull(message="Campo Livro não pode estar vazio...")
 	@ManyToOne
 	private Livro livro;
-
+    
+	
+		
+	
 	public int getId() {
 		return id;
 	}
@@ -33,7 +43,7 @@ public class Resenha implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+    
 	public String getDescricao() {
 		return descricao;
 	}

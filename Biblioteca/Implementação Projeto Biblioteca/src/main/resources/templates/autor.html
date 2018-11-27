@@ -8,7 +8,8 @@
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body bgcolor="lightgray">
+<body >
+	
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<strong>Autor</strong>
@@ -34,8 +35,8 @@
 							
 							<td>
 								<div class="btn-group pull-right">
-							   		<a class="btn btn-sm btn-primary" th:href="@{/autor/edit/{id}(id=${autor.id})}" >Editar</a>
-							   		<a class="delete btn btn-sm btn-danger" th:href="@{/autor/delete/{id}(id=${autor.id})}">Excluir</a>
+							   		<a class="btn btn-sm btn-warning" th:href="@{/autor/edit/{id}(id=${autor.id})}" ><b>Editar</b></a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/autor/delete/{id}(id=${autor.id})}"><b>Excluir</b></a>
 							   </div>
 							</td>
 						</tr>
@@ -44,7 +45,8 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			<a class="btn btn-sm btn-success" th:href="@{/autor/add/}" >Adicionar</a>
+			<a class="btn btn-sm btn-info" th:href="@{/autor/add/}" ><b>Adicionar</b></a>
+			<a class="btn btn-sm btn-default" th:href="@{/menu/}" ><b>Menu Principal</b></a>
 		</div>
 	</div>
 </body>
